@@ -3,7 +3,7 @@ name: uruzalos
 description: This is my personal OS image.
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: latest
+image-version: "44"
 
 modules:
   - type: files
@@ -16,8 +16,10 @@ modules:
       - rpmfusion
 
   - type: akmods
+    base: main
+    nvidia-driver: nvidia-open
     install:
-      - nvidia-open
+      - v4l2loopback
 
   - type: dnf
     install:
